@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="./bootstrap/css/main.css" type="text/css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    var sumleft = 0;
+    var sumright = 0;
+
+    $("#check").click(function(){
+      calculateSumLeft();
+      calculateSumRight();
+      alert("left: " + sumleft + ", " + "right: " + sumright);
+
+      if (sumright == sumleft) {
+        alert("Balanced")
+      }
+      else {
+        alert("Unbalanced")
+      }
+
+    });
+
+    function calculateSumLeft() {
+      $(".weightleft").each(function() {
+        if(!isNaN(this.value) && this.value.length!=0) {
+          sumleft += parseFloat(this.value);
+        }
+      });
+      return sumleft;
+    }
+
+    function calculateSumRight() {
+      $(".weightright").each(function() {
+        if(!isNaN(this.value) && this.value.length!=0) {
+          sumright += parseFloat(this.value);
+        }
+      });
+      return sumright;
+    }
+
+  });
+
+  
+  </script>
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <table class="table table-bordered boat">
+      <tr>
+        <td><input type="text" placeholder="Enter a name" />
+          <input class = "weightleft" type="text" placeholder="Enter a weight" /></td>
+          <td><input type="text" placeholder="Enter a name" />
+            <input class = "weightright" type="text" placeholder="Enter a weight" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="Enter a name" />
+              <input class = "weightleft" type="text" placeholder="Enter a weight" /></td>
+              <td><input type="text" placeholder="Enter a name" />
+                <input class = "weightright" type="text" placeholder="Enter a weight" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" placeholder="Enter a name" />
+                  <input class = "weightleft" type="text" placeholder="Enter a weight" /></td>
+                  <td><input type="text" placeholder="Enter a name" />
+                    <input class = "weightright" type="text" placeholder="Enter a weight" /></td>
+                  </tr>
+                </table>
+              </div>
+
+
+              <div align = "center">
+                <button id = "check" class = "btn btn-primary"  type="button">Check weight</button>
+
+              </div>
+
+            </body>
+            </html>
